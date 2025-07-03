@@ -284,6 +284,15 @@ class ConnectionPass extends AbstractPass
 				'user' => Expect::string()->dynamic(),
 				...$shared,
 			])->castTo('array'),
+			'pgsql' => Expect::structure([
+				'dbname' => Expect::string()->dynamic(),
+				'driver' => Expect::anyOf('pgsql'),
+				'host' => Expect::string()->dynamic(),
+				'password' => Expect::string()->dynamic(),
+				'port' => Expecto::port(),
+				'user' => Expect::string()->dynamic(),
+				...$shared,
+			])->castTo('array'),
 		];
 	}
 
